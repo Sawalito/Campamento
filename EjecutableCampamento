@@ -1,0 +1,29 @@
+package Campamento;
+
+public class EjecutableCampamento {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		CampamentoVerano campamento = new CampamentoVerano("Valle lagos", "12/12/2023","Paco");
+		
+		boolean resp = campamento.alta("ROVS040502HMCJZLA5", "Saul", "surv@gmail.com");
+		System.out.println(resp);
+		resp  = campamento.alta("SAMR040514MDFNRGA1", "Sal", "sura@gmail.com");
+		System.out.println(resp);
+		resp  = campamento.alta("PAGL040827HDFNRGA1", "Sal", "sura@gmail.com");
+		System.out.println(resp);
+		resp  = campamento.alta("PAGL040827HDFNRGA1", "Sal", "sura@gmail.com");
+		System.out.println(resp);
+		resp = campamento.baja("ROVS040502MMCJZLA5");
+		System.out.println(resp);
+		resp = campamento.baja("ROVS040502HMCJZLA5");
+		System.out.println(resp);
+		System.out.println(campamento.toString());
+		
+		System.out.println(campamento.cuentaPorRango());
+		
+		System.out.println(campamento.nacionalidad("DF"));
+		
+	}
+
+}	
