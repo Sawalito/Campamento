@@ -1,0 +1,76 @@
+package Campamento;
+
+import java.util.Objects;
+
+public class Persona {
+	private String curp;
+	private String nombre;
+	private String email;
+	private int edad;
+	
+	public Persona(String curp,String nombre,String email) {
+		this.curp = curp;
+		this.nombre = nombre;
+		this.email=email;
+		int anio, mes , dia;
+		
+		anio = Integer.parseInt(curp.substring(4, 6));
+		mes = Integer.parseInt(curp.substring(6, 8));
+		dia = Integer.parseInt(curp.substring(8, 10));
+		
+		anio = anio < 24 ? (anio+=2000) : (anio+=1900);
+		this.edad = 2023 -anio;
+		if(mes > 11) {
+			edad--;
+		}else {
+			if(mes == 11 && dia > 7) {
+				edad--;
+			}
+		}
+		
+	}
+	
+	public String indicaNacionalidad() {
+		return curp.substring(11,13);
+	}
+
+	public String getCurp() {
+		return curp;
+	}
+
+	public String getNombre() {
+		return nombre;
+	}
+
+	public int getEdad() {
+		return edad;
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Persona other = (Persona) obj;
+		return Objects.equals(curp, other.curp);
+	}
+
+	@Override
+	public String toString() {
+		StringBuilder builder = new StringBuilder();
+		builder.append("Persona [curp=");
+		builder.append(curp);
+		builder.append(", nombre=");
+		builder.append(nombre);
+		builder.append(", email=");
+		builder.append(email);
+		builder.append(", edad=");
+		builder.append(edad);
+		builder.append("]");
+		return builder.toString();
+	}
+
+}
